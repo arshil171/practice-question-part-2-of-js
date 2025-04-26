@@ -131,12 +131,42 @@ class Shape{
     }
 }
 class Circle extends Shape{
-    calculateArea(radiusOfCircle){
+    constructor(radius){
+       super(radius)
+       this.radius= radius
+    }
+    calculateArea(){
         
-      return 3.14*radiusOfCircle*radiusOfCircle
+      console.log("Area of Circle is :- 3.14 * r * r = " , 3.14 * this.radius * this.radius )
 
     }
 }
 class Triangle extends Shape{
-    
+    constructor(base , height){
+        super(base,height)
+        this.base= base
+        this.height = height
+    }
+    calculateAreaTriangle(){
+        console.log("Area of triangle :- 1/2 * b * h =",1/2 * this.base * this.height)
+
+    }
 }
+console.log("Q - 5 :- output")
+
+let circle1 = new Circle(12)
+console.log(circle1)
+circle1.calculateArea()
+
+let circle2 = new Circle(14)
+console.log(circle2)
+circle2.calculateArea()
+
+
+let triangle1 = new Triangle(14 , 17)
+console.log(triangle1)
+triangle1.calculateAreaTriangle()
+
+let triangle2 = new Triangle(19 , 13)
+console.log(triangle2)
+triangle2.calculateAreaTriangle()
