@@ -170,3 +170,171 @@ triangle1.calculateAreaTriangle()
 let triangle2 = new Triangle(19 , 13)
 console.log(triangle2)
 triangle2.calculateAreaTriangle()
+
+// Q - 6 Write a JavaScript program that creates a class called 'Employee' with properties for name and salary. Include a method to calculate annual salary. Create a subclass called 'Manager' that inherits from the 'Employee' class and adds an additional property for department. Override the annual salary calculation method to include bonuses for managers. Create two instances of the 'Manager' class and calculate their annual salary.
+
+class Employee{
+    constructor(name , salary){
+        this.name = name
+        this.salary = salary
+    }
+    calculateAnnualSalary(){
+     let   totalSalary = this.salary
+    }
+
+}
+class Manager extends Employee {
+    constructor(name , salary , department){
+        super(name,salary,department)
+        this.department = department
+    }
+    calculateAnnualSalary(bonus){
+        console.log("bonus is :-" , bonus)
+      let  totalSalary = this.salary + bonus
+        console.log(`annual salary of manager with bonus  is :-`,totalSalary)
+    }
+
+}
+console.log("Q - 6 :- output")
+let manager1 = new Manager("Arshil" , 20000 , "computer Engineering")
+console.log(manager1)
+manager1.calculateAnnualSalary(4000)
+
+let manager2 = new Manager("Param" , 24000 , "Information Technology")
+console.log(manager2)
+manager2.calculateAnnualSalary(7000)
+
+
+// Q - 7 Write a JavaScript program that creates a class Book with properties for title, author, and publication year. Include a method to display book details. Create a subclass called 'Ebook' that inherits from the 'Book' class and includes an additional property for book price. Override the display method to include the book price. Create an instance of the 'Ebook' class and display its details.
+
+class Book {
+    constructor(title , author , publicationYear){
+        this.title = title
+        this.author = author
+        this.publicationYear = publicationYear
+    }
+    displayBookDetail(){
+        console.log(`Book title is :- ${this.title}  , Book author is :- ${this.author}  , Year of publication is :- ${this.publicationYear}` )
+    }
+}
+ 
+class Ebook extends Book{
+    constructor(title, author , publicationYear,price){
+        super(title , author, publicationYear, price)
+        this.price = price
+    }
+    displayBookDetail(){
+        console.log(`Book title is :- ${this.title}  , Book author is :- ${this.author}  , Year of publication is :- ${this.publicationYear} ,Book price is :- ${this.price}` )
+    }
+}
+console.log("Q - 7 :- output")
+let ebook1 = new Ebook ("My Journey" , "Abdual Kalam A P J " , 2010 , 295)
+console.log(ebook1)
+ebook1.displayBookDetail()
+
+let ebook2 = new Ebook ("Simplify" , "Captain Gopinath " , 2008 , 265)
+console.log(ebook2)
+ebook2.displayBookDetail()
+
+// Q - 8 Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound
+
+class Animal {
+    constructor(species , sound){
+        this.species = species
+        this.sound = sound
+    }
+    animalSound(){
+        console.log("sound is :-" , this.sound)
+    }
+}
+class Dog extends Animal {
+    constructor(species , sound , color){
+        super(species , sound , color)
+        this.color =  color
+
+        
+    }
+    animalSound(){
+        console.log("the sound of dog is :-" , this.sound)
+    }
+}
+console.log("Q - 8 :- output")
+let dog1 = new Dog("jurmon Saffor" , "Bhow - Bhow " , "red")
+console.log(dog1)
+dog1.animalSound()
+
+let dog2 = new Dog("Labrador" , "Bhow - Bhow " , "Brown")
+console.log(dog2)
+dog2.animalSound()
+
+
+// Q - 9 Write a JavaScript program that creates a class called Bank with properties for bank names and branches. Include methods to add a branch, remove a branch, and display all branches. Create an instance of the Bank class and perform operations to add and remove branches.
+
+
+class Bank {
+    constructor(name) {
+      this.name = name;
+      this.branches = [];
+    }
+  
+    addBranch(branch) {
+      this.branches.push(branch);
+    }
+  
+    removeBranch(branch) {
+      this.branches = this.branches.filter(b => b !== branch);
+    }
+  
+    displayBranches() {
+      console.log(`Branches of ${this.name}:`, this.branches.join(", "));
+    }
+  }
+  
+  console.log("Q - 9 :- output")
+  const bank = new Bank("Bob");
+  
+  bank.addBranch("Changoder");
+  bank.addBranch("bopal");
+  bank.addBranch("bavla");
+  
+  bank.displayBranches(); 
+  
+  bank.removeBranch("Changoder");
+  
+  bank.displayBranches()
+
+// Q - 10 Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
+
+
+class Product {
+    constructor(id, name, price) {
+      this.id = id;
+      this.name = name;
+      this.price = price;
+    }
+
+    calculateTotalPrice(quantity) {
+      return this.price * quantity;
+    }
+  }
+
+  class PersonalCareProduct extends Product {
+    constructor(id, name, price, warrantyPeriod) {
+      super(id, name, price); 
+      this.warrantyPeriod = warrantyPeriod;
+    }
+  
+ 
+    calculateTotalPrice(quantity) {
+      const baseTotal = super.calculateTotalPrice(quantity);
+      const warrantyCharge = this.warrantyPeriod * 50;
+      return baseTotal + warrantyCharge;
+    }
+  }
+  console.log("Q - 10 :- output")
+  const shampoo = new PersonalCareProduct(101, "Herbal Shampoo", 200, 2);
+  
+  const quantity = 3;
+  const totalPrice = shampoo.calculateTotalPrice(quantity);
+  
+  console.log(`Total price for ${quantity} ${shampoo.name}(s): ₹${totalPrice}`);
